@@ -1,0 +1,266 @@
+.tao-de-thi-container {
+  margin: auto;
+  padding: 80px 0px;
+  padding-bottom: 50px;
+
+  h1 {
+    font-size: 38px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0px;
+    padding-bottom: 32px;
+  }
+
+  .gioithieu-guide {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+
+    margin: 0 auto;
+    padding: 20px 0px;
+    padding-bottom: 0px;
+    .noidunggioithieu {
+      flex: 1.2;
+      font-size: 16px;
+      line-height: 1.75;
+      color: #333;
+    }
+
+    .guide {
+      flex: 1;
+
+      h2 {
+        margin: 0px;
+        text-align: start;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+
+      p {
+        position: relative;
+        margin-bottom: 14px;
+        font-size: 15px;
+        color: #222;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .gioithieu-guide {
+      flex-direction: column;
+      gap: 24px;
+
+      .noidunggioithieu {
+        font-size: 15px;
+      }
+
+      .guide p {
+        font-size: 14px;
+      }
+    }
+  }
+
+
+  .taodethibtn {
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+  }
+
+
+}
+
+.tao-de-thi {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: start;
+}
+
+.image-wrapper {
+  width: 218.01px;
+  height: 280px;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    display: block;
+  }
+
+  .remove-btn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+
+    background: rgba(123, 120, 120, 0.6);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.2s;
+  }
+
+  .remove-btn:hover {
+    background: rgba(181, 172, 172, 0.6);
+  }
+}
+
+
+.inpaddfile {
+  background: #e53935;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px dashed white;
+    border-radius: 3px;
+    pointer-events: none;
+  }
+
+  &.full {
+    width: 100%;
+    min-height: 280px;
+    border-radius: 6px;
+
+    .btn {
+      border-radius: 3px;
+      padding: 10px 20px;
+    }
+
+  }
+
+  &.compact {
+    width: 218.01px;
+    min-height: 280px;
+    border-radius: 3px;
+
+    .btn {
+      padding: 20px;
+      border-radius: 999px;
+
+      >span {
+        display: none;
+      }
+    }
+
+    .imgUploadImg {
+      display: none;
+    }
+  }
+
+  .content {
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .btn {
+    background: #fff;
+    color: #000;
+    border: none;
+
+    display: inline-flex;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &:hover {
+      background: #f5f5f5;
+    }
+  }
+
+}
+
+@media (max-width: 768px) {
+  .tao-de-thi-container {
+    padding-top: 80px;
+
+    h1 {
+      font-size: 30px;
+      font-weight: 600;
+      text-align: center;
+      margin: 0px;
+    }
+  }
+
+  .tao-de-thi {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+    .image-wrapper,
+    .inpaddfile {
+      width: 100%;
+      min-height: 300px;
+      max-height: 300px;
+      aspect-ratio: 1 / 1;
+      border-radius: 3px;
+      overflow: hidden;
+      position: relative;
+
+      &.full {
+        grid-column: 1 / -1;
+      }
+
+      &.compact {
+        .imgUploadImg {
+          display: none;
+        }
+
+        .btn {
+          border-radius: 999px;
+          padding: 20px;
+
+          >span {
+            display: none;
+          }
+        }
+      }
+
+    }
+
+    .image-wrapper {
+      img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+    }
+  }
+
+}

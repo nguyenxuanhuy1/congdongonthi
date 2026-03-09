@@ -1,0 +1,51 @@
+@import './header.scss';
+@import './btn.scss';
+@import './trangchu.scss';
+@import './uploadcustom.scss';
+@import './gioithieu.scss';
+@import './cardcustom.scss';
+@import './dethihot.scss';
+@import './taodethi.scss';
+@import './footer.scss';
+@import './bgsilde1.scss';
+@import './howtogetkey.scss';
+@import './examlayout.scss';
+@import './examDangThi.scss';
+@import './loading.scss';
+@import './trangcanhan.scss';
+@import './customdropdown.scss';
+@import './pagination-custom.scss';
+@import './tong-hop-de-thi.scss';
+@import './layoutAdmin.scss';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+
+  .ctn-global {
+    margin: 0 auto;
+    max-width: 920px;
+
+    @media (max-width: 921px) {
+      padding: 0px 16px;
+    }
+
+    .container-main {
+      margin-top: 64px;
+    }
+  }
+
+  .ctn-global-exam {
+    margin: 0 auto;
+    max-width: 920px;
+    padding: 16px 0px;
+
+    @media (max-width: 921px) {
+      padding: 16px;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.btn-custom {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+
+  background-color: #1677ff;
+  color: #fff;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  &:hover {
+    background-color: #0958d9;
+  }
+
+  &:disabled {
+    background-color: #bfbfbf;
+    cursor: not-allowed;
+  }
+}

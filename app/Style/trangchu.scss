@@ -1,0 +1,67 @@
+.trangchu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: auto;
+  h1 {
+    font-size: 34px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .content {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+  }
+
+  .uploadFile {
+    width: 500px;
+    height: 280px;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .guide {
+    max-width: 380px;
+    color: #555;
+    p {
+      font-size: 18px;
+      line-height: 1.55;
+      margin: 0px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .trangchu {
+    h1 {
+      font-size: 32px;
+      margin-bottom: 24px;
+    }
+
+    .content {
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+      align-items: center;
+    }
+
+    .uploadFile {
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .guide {
+      width: 100%;
+
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+}

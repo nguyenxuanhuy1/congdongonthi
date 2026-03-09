@@ -1,0 +1,109 @@
+.exam-layout {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: white;
+    z-index: 1;
+    &__back {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+        font-size: 18px;
+        gap: 10px;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &-icon {
+            font-size: 20px;
+        }
+
+        &-text {
+            margin-left: 12px;
+            font-weight: 500;
+        }
+    }
+
+    .setTimeAndStart {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .time-select {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .anticon {
+                font-size: 16px;
+                color: #666;
+            }
+        }
+    }
+
+    .exam-timer-ctn {
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        @media screen and (min-width: 1023px) {
+            gap: 30px;
+        }
+
+        .exam-timer-layout {
+            margin-bottom: 5px;
+
+            @media screen and (max-width: 1023px) {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.btn-exam-start {
+    @media screen and (max-width: 1023px) {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+.ant-select {
+    border: none !important;
+    box-shadow: none !important;
+    font-size: 18px !important;
+
+    @media screen and (max-width: 1023px) {
+        font-size: 16px !important;
+    }
+}
+
+.ant-select-selector {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.ant-select-focused .ant-select-selector {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+.ant-select-dropdown {
+    border-radius: 3px !important;
+    overflow: hidden;
+}
+
+.ant-select-item-option {
+    border-radius: 1px !important;
+    overflow: hidden;
+}

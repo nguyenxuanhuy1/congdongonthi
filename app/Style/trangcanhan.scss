@@ -1,0 +1,56 @@
+.trangcanhan {
+    max-width: 916px;
+    margin: auto;
+    margin-top: 56px;
+    padding: 16px;
+}
+
+.user-ctn {
+    display: flex;
+    gap: 15px;
+    align-items: start;
+    margin-bottom: 20px;
+
+    .inforUser {
+        .userNameTCN {
+            span {
+                font-size: 30px;
+            }
+        }
+
+        .dalamTCN {
+            span {
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .user-ctn {
+        margin-bottom: 10px;
+    }
+
+    .avatarUserTCN {
+        height: 70px !important;
+        width: 70px !important;
+    }
+
+    .user-ctn {
+        gap: 10px;
+
+        .inforUser {
+            .userNameTCN {
+                span {
+                    font-size: 24px;
+                }
+            }
+
+            .dalamTCN {
+                span {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
