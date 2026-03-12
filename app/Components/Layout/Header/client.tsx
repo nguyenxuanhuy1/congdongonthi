@@ -84,7 +84,7 @@ export default function MenuClient({
     </ul>
   );
 
-  /* ================= DESKTOP ================= */
+
 
   if (isDesktop) {
     if (loading) {
