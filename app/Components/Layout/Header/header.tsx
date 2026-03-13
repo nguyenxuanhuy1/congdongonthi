@@ -15,7 +15,7 @@ export default async function Header() {
       <div className="logo">
         <MenuClient isMobile />
         <Link href="/">
-          <h1>CỘNG ĐỒNG ÔN THI</h1>
+          <h1>CỘNG ĐỒNG ÔN THI.</h1>
         </Link>
       </div>
 
@@ -29,9 +29,7 @@ export default async function Header() {
             href={`${domain}/oauth2/authorization/google`}
             style={{ textDecoration: "none" }}
           >
-            <ButtonCustom className="login-btn lgmb">
-              Đăng nhập
-            </ButtonCustom>
+            <ButtonCustom className="login-btn lgmb">Đăng nhập</ButtonCustom>
           </Link>
         ) : (
           <MenuClient isDesktop />
