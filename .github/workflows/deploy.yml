@@ -26,4 +26,4 @@ jobs:
             git pull origin master
             npm ci
             npm run build
-            pm2 restart nextjs-giasu
+            pm2 restart congdongonthi
