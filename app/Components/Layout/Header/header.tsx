@@ -15,7 +15,7 @@ export default async function Header() {
       <div className="logo">
         <MenuClient isMobile />
         <Link href="/">
-          <h1>CỘNG ĐỒNG ÔN THI.</h1>
+          <h1>CỘNG ĐỒNG ÔN THI</h1>
         </Link>
       </div>
 
