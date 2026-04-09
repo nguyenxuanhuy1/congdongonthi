@@ -2,8 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  max-width: 920px;
   margin: auto;
+  padding: 0 16px;
+
+  @media (max-width: 921px) {
+    padding: 0 16px;
+  }
   h1 {
     font-size: 34px;
     font-weight: 600;

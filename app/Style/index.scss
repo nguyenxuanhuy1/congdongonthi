@@ -24,15 +24,8 @@
 }
 
 body {
-
-
   .ctn-global {
     margin: 0 auto;
-    max-width: 920px;
-
-    @media (max-width: 921px) {
-      padding: 0px 16px;
-    }
 
     .container-main {
       margin-top: 64px;
@@ -41,11 +34,5 @@ body {
 
   .ctn-global-exam {
     margin: 0 auto;
-    max-width: 920px;
-    padding: 16px 0px;
-
-    @media (max-width: 921px) {
-      padding: 16px;
-    }
   }
 }

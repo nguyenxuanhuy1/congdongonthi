@@ -1,6 +1,18 @@
 .container-de-thi-chia-se-tf{
+    max-width: 920px;
+    margin: 0 auto;
     margin-top: 82px;
     margin-bottom: 20px;
+    padding: 0 16px;
+
+    @media (max-width: 921px) {
+      padding: 0 16px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 0 12px;
+    }
+
     .linkThi{
         text-decoration: none;
     }

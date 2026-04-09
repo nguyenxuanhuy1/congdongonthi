@@ -1,7 +1,14 @@
 .gioiThieu {
+  max-width: 920px !important;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 50px 40px;
+  padding: 0 16px;
+
+  @media (max-width: 921px) {
+    padding: 0 16px;
+  }
 
   .item {
     text-align: center;
@@ -42,8 +49,14 @@
 
 
 .mucTieu {
+  max-width: 920px;
+  margin: 0 auto;
   text-align: center;
-  padding: 50px 0px;
+  padding: 50px 16px;
+
+  @media (max-width: 921px) {
+    padding: 50px 16px;
+  }
 
   h1 {
     font-size: 32px;

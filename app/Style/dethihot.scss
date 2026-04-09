@@ -17,6 +17,14 @@
 }
 
 .de-thi-hot {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  @media (max-width: 921px) {
+    padding: 0 16px;
+  }
+
   h2 {
     font-size: 32px;
     font-weight: 600;
