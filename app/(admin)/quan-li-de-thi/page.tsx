@@ -1,12 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Modal, message } from "antd";
+import { Modal, message, Form, Input, Select } from "antd";
 import { EditOutlined } from "@ant-design/icons";
 import { adminGetList, adminUpdate } from "../../lib/auth";
 import { formatDate } from "@/app/(main)/tong-hop-de-thi/helper/formatDate";
-import { Form, Input, Select } from "antd";
-import styles from "./QuanLiDeThiPage.module.scss";
 
 interface NhanVien {
   id: number;
@@ -54,8 +52,6 @@ const QuanLiDeThiPage = () => {
       });
       setData(res.data || []);
       setTotal(res.total || 0);
-    } catch {
-      // handle silently
     } finally {
       setLoading(false);
     }
@@ -63,12 +59,7 @@ const QuanLiDeThiPage = () => {
 
   const handleOpenEdit = (record: NhanVien) => {
     setSelectedRecord(record);
-    form.setFieldsValue({
-      name: record.name,
-      school_name: record.school_name,
-      extend: record.extend,
-      is_public: record.is_public,
-    });
+    form.setFieldsValue(record);
     setModalOpen(true);
   };
 
@@ -95,27 +86,29 @@ const QuanLiDeThiPage = () => {
   const endItem = Math.min(page * pageSize, total);
 
   return (
-    <div className={styles.page}>
+    <div className="pageAdminDethi">
       {/* Header */}
-      <div className={styles.header}>
-        <div className={styles.headerLeft}>
-          <h2 className={styles.title}>Quản lý đề thi</h2>
+      <div className="pageAdminDethi-header">
+        <div className="pageAdminDethi-headerLeft">
+          <h2 className="pageAdminDethi-title">Quản lý đề thi</h2>
           {!loading && (
-            <span className={styles.totalBadge}>{total} đề thi</span>
+            <span className="pageAdminDethi-totalBadge">
+              {total} đề thi
+            </span>
           )}
         </div>
       </div>
 
       {/* Table */}
-      <div className={styles.tableCard}>
-        <div className={styles.tableWrapper}>
-          <table className={styles.table}>
+      <div className="pageAdminDethi-tableCard">
+        <div className="pageAdminDethi-tableWrapper">
+          <table className="pageAdminDethi-table">
             <thead>
               <tr>
                 {COLUMNS.map((col) => (
                   <th
                     key={col.key}
-                    className={styles.th}
+                    className="pageAdminDethi-th"
                     style={col.width ? { width: col.width } : undefined}
                   >
                     {col.label}
@@ -123,62 +116,48 @@ const QuanLiDeThiPage = () => {
                 ))}
               </tr>
             </thead>
+
             <tbody>
               {loading ? (
                 <tr>
-                  <td colSpan={COLUMNS.length} className={styles.loadingCell}>
-                    <div className={styles.loadingDots}>
-                      <span />
-                      <span />
-                      <span />
-                    </div>
+                  <td colSpan={COLUMNS.length} className="pageAdminDethi-loadingCell">
+                    Loading...
                   </td>
                 </tr>
               ) : data.length === 0 ? (
                 <tr>
-                  <td colSpan={COLUMNS.length} className={styles.emptyCell}>
+                  <td colSpan={COLUMNS.length} className="pageAdminDethi-emptyCell">
                     Không có dữ liệu
                   </td>
                 </tr>
               ) : (
                 data.map((record) => (
-                  <tr key={record.id} className={styles.tr}>
-                    <td className={`${styles.td} ${styles.tdId}`}>
-                      #{record.id}
-                    </td>
-                    <td className={`${styles.td} ${styles.tdName}`}>
-                      {record.name}
-                    </td>
-                    <td className={`${styles.td} ${styles.tdSecondary}`}>
-                      {record.school_name}
-                    </td>
-                    <td className={`${styles.td} ${styles.tdSecondary}`}>
-                      {record.extend}
-                    </td>
-                    <td className={styles.td}>
+                  <tr key={record.id} className="pageAdminDethi-tr">
+                    <td className="pageAdminDethi-td">#{record.id}</td>
+                    <td className="pageAdminDethi-td">{record.name}</td>
+                    <td className="pageAdminDethi-td">{record.school_name}</td>
+                    <td className="pageAdminDethi-td">{record.extend}</td>
+                    <td className="pageAdminDethi-td">
                       <span
-                        className={`${styles.pill} ${
+                        className={
                           record.is_public === 2
-                            ? styles.pillPublic
-                            : styles.pillPrivate
-                        }`}
+                            ? "pageAdminDethi-pill pageAdminDethi-pillPublic"
+                            : "pageAdminDethi-pill pageAdminDethi-pillPrivate"
+                        }
                       >
                         {record.is_public === 2 ? "Công khai" : "Riêng tư"}
                       </span>
                     </td>
-                    <td className={`${styles.td} ${styles.tdSecondary}`}>
+                    <td className="pageAdminDethi-td">
                       {formatDate(record.created_at)}
                     </td>
-                    <td className={styles.td}>
-                      <div className={styles.actions}>
-                        <button
-                          className={styles.actionBtn}
-                          onClick={() => handleOpenEdit(record)}
-                          title="Sửa tiêu đề"
-                        >
-                          <EditOutlined />
-                        </button>
-                      </div>
+                    <td className="pageAdminDethi-td">
+                      <button
+                        className="pageAdminDethi-actionBtn"
+                        onClick={() => handleOpenEdit(record)}
+                      >
+                        <EditOutlined />
+                      </button>
                     </td>
                   </tr>
                 ))
@@ -189,129 +168,54 @@ const QuanLiDeThiPage = () => {
 
         {/* Pagination */}
         {!loading && total > 0 && (
-          <div className={styles.pagination}>
-            <span className={styles.paginationInfo}>
-              {startItem}–{endItem} / {total} kết quả
+          <div className="pageAdminDethi-pagination">
+            <span>
+              {startItem}–{endItem} / {total}
             </span>
 
-            <div className={styles.paginationControls}>
-              <select
-                className={styles.pageSizeSelect}
-                value={pageSize}
-                onChange={(e) => {
-                  setPageSize(Number(e.target.value));
-                  setPage(1);
-                }}
-              >
-                {PAGE_SIZE_OPTIONS.map((s) => (
-                  <option key={s} value={s}>
-                    {s} / trang
-                  </option>
-                ))}
-              </select>
-
-              <div className={styles.pageButtons}>
-                <button
-                  className={styles.pageBtn}
-                  disabled={page === 1}
-                  onClick={() => setPage(page - 1)}
-                >
-                  ‹
-                </button>
-                {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
-                  const p = i + 1;
-                  return (
-                    <button
-                      key={p}
-                      className={`${styles.pageBtn} ${
-                        p === page ? styles.pageBtnActive : ""
-                      }`}
-                      onClick={() => setPage(p)}
-                    >
-                      {p}
-                    </button>
-                  );
-                })}
-                {totalPages > 5 && <span className={styles.pageEllipsis}>…</span>}
-                <button
-                  className={styles.pageBtn}
-                  disabled={page === totalPages}
-                  onClick={() => setPage(page + 1)}
-                >
-                  ›
-                </button>
-              </div>
-            </div>
+            <select
+              value={pageSize}
+              onChange={(e) => {
+                setPageSize(Number(e.target.value));
+                setPage(1);
+              }}
+            >
+              {PAGE_SIZE_OPTIONS.map((s) => (
+                <option key={s} value={s}>
+                  {s} / trang
+                </option>
+              ))}
+            </select>
           </div>
         )}
       </div>
 
-      {/* Edit Modal */}
-      <Modal
-        open={modalOpen}
-        onCancel={handleClose}
-        onOk={handleSave}
-        title={null}
-        footer={null}
-        width={480}
-        className={styles.modal}
-        closable={false}
-        centered
-      >
-        <div className={styles.modalHeader}>
-          <h3 className={styles.modalTitle}>Chỉnh sửa đề thi</h3>
-          <button className={styles.modalClose} onClick={handleClose}>
-            ✕
-          </button>
-        </div>
+      {/* Modal */}
+      <Modal open={modalOpen} footer={null} onCancel={handleClose} className="pageAdminDethi-modal">
+        <Form form={form} layout="vertical">
+          <Form.Item name="name" label="Tên đề thi" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
 
-        <div className={styles.modalBody}>
-          <Form form={form} layout="vertical" className={styles.form}>
-            <Form.Item
-              label="Tên đề thi"
-              name="name"
-              rules={[{ required: true, message: "Không được để trống" }]}
-              className={styles.formItem}
-            >
-              <Input className={styles.input} placeholder="Nhập tên đề thi" />
-            </Form.Item>
+          <Form.Item name="school_name" label="Trường">
+            <Input />
+          </Form.Item>
 
-            <Form.Item
-              label="Trường"
-              name="school_name"
-              className={styles.formItem}
-            >
-              <Input className={styles.input} placeholder="Nhập tên trường" />
-            </Form.Item>
+          <Form.Item name="extend" label="Cre">
+            <Input />
+          </Form.Item>
 
-            <Form.Item label="Cre" name="extend" className={styles.formItem}>
-              <Input className={styles.input} placeholder="Người tạo" />
-            </Form.Item>
+          <Form.Item name="is_public" label="Trạng thái">
+            <Select
+              options={[
+                { label: "Công khai", value: 2 },
+                { label: "Riêng tư", value: 1 },
+              ]}
+            />
+          </Form.Item>
 
-            <Form.Item
-              label="Trạng thái"
-              name="is_public"
-              className={styles.formItem}
-            >
-              <Select
-                className={styles.select}
-                options={[
-                  { label: "Công khai", value: 2 },
-                  { label: "Riêng tư", value: 1 },
-                ]}
-              />
-            </Form.Item>
-          </Form>
-        </div>
-
-        <div className={styles.modalFooter}>
-          <button className={styles.btnCancel} onClick={handleClose}>
-            Huỷ
-          </button>
-          <button className={styles.btnSave} onClick={handleSave}>
-            Lưu thay đổi
-          </button>
-        </div>
+          <button onClick={handleSave}>Lưu</button>
+        </Form>
       </Modal>
     </div>
   );

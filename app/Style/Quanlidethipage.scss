@@ -1,0 +1,78 @@
+.pageAdminDethi {
+  padding: 24px;
+  background: #f8f9fc;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.pageAdminDethi-header {
+  margin-bottom: 16px;
+}
+
+.pageAdminDethi-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* TABLE */
+.pageAdminDethi-tableCard {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+.pageAdminDethi-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pageAdminDethi-th {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.pageAdminDethi-td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.pageAdminDethi-tr:hover {
+  background: #f5f7ff;
+}
+
+/* STATUS */
+.pageAdminDethi-pill {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.pageAdminDethi-pillPublic {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.pageAdminDethi-pillPrivate {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+/* BUTTON */
+.pageAdminDethi-actionBtn {
+  border: 1px solid #ddd;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+
+/* PAGINATION */
+.pageAdminDethi-pagination {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* MODAL FIX ANT */
+.pageAdminDethi-modal .ant-modal-content {
+  border-radius: 12px;
+}
